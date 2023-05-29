@@ -17,7 +17,7 @@
   <title>Quiz App</title>
 </head>
 
-<body>
+<body onload="init()">
 
 
   <header class="navbar bg-body-tertiary">
@@ -45,32 +45,32 @@
 
         <div class="card-body  main-body flex-column ">
           <!-- <p class="card-text">Wilkommen in meinem Quiz!</p> -->
-          <h3 class="card-title">Was ist die Abkürzung für HTML?</h3>
+          <h3 id="question" class="card-title text-center"></h3>
 
           <div class="card mb-2 answer">
-            <div class="card-body d-flex flex-row align-items-center">
-              <div class="viereck"><b>A</b></div> <span> HyperText Markup Language</span>
+            <div class="card-body d-flex flex-row align-items-center" >
+              <div class="viereck"><b>A</b></div> <span id="answer1"></span>
             </div>
           </div>
           <div class="card mb-2 answer">
-            <div class="card-body  d-flex flex-row align-items-center ">
-              <div class="viereck"><b>B</b></div> <span class="">Home Tool Markup Language</span>
+            <div class="card-body d-flex flex-row align-items-center" >
+              <div class="viereck"><b>B</b></div> <span id="answer2"></span>
             </div>
           </div>
           <div class="card mb-2 answer">
-            <div class="card-body  d-flex flex-row align-items-center">
-              <div class="viereck"><b>C</b></div> <span>Hyperlinks and Text Markup Language</span>
+            <div class="card-body d-flex flex-row align-items-center" >
+              <div class="viereck"><b>C</b></div> <span id="answer3"></span>
             </div>
           </div>
           <div class="card mb-2 answer">
-            <div class="card-body  d-flex flex-rowalign-items-center">
-              <div class="viereck"><b>D</b></div> <span>High-Level Markup Language</span>
+            <div class="card-body d-flex flex-row align-items-center" >
+              <div class="viereck"><b>D</b></div> <span id="answer4"></span>
             </div>
           </div>
           <div class="question-footer">
-            <span><b>1</b> von <b>5</b> Fragen</span>
+            <span ><b id="page"></b> von <b id="pages"></b> Fragen</span>
 
-            <button type="button" class="btn btn-primary">Nächste Frage</button>
+            <button onclick="nextQuestion()" type="button" class="btn btn-primary">Nächste Frage</button>
 
           </div>
         </div>
@@ -104,7 +104,7 @@ B) <a>
 C) <div>
 D) <span>
 
-Frage 3: Welches Tag wird verwendet, um eine Liste mit numerierten Aufzählungspunkten zu erstellen?
+Frage 3: Welches "Tag" wird verwendet, um eine Liste mit numerierten Aufzählungspunkten zu erstellen?
 A) <ul>
 B) <ol>
 C) <li>
