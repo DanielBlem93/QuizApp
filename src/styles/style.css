@@ -45,15 +45,15 @@ nav {
 
 }
 
-.quiz-logo{
+.quiz-logo {
     margin-top: 30px
 }
 
 .link-container {
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
 }
 
-.card-title{
+.card-title {
     margin-bottom: 50px;
 }
 
@@ -70,6 +70,7 @@ nav {
 
 .answer {
     width: 70%;
+    cursor: pointer;
 }
 
 .viereck {
@@ -90,3 +91,26 @@ nav {
     justify-content: space-between;
     width: 70%;
 }
+
+/* js classes */
+
+.rightAnswer {
+    background-color: lightgreen;
+}
+
+.rightAnswer2 {
+    background-color: rgb(0, 204, 0);
+}
+
+.textWhite {
+    color: white;
+}
+
+.wrongAnswer {
+    background-color: lightcoral;
+}
+
+.wrongAnswer2 {
+    background-color: red;
+}
+

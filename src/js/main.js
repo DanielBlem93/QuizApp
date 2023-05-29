@@ -4,7 +4,8 @@ let questions = [{
     'antwort2': 'Home Tool Markup Language',
     'antwort3': 'Hyperlinks and Text Markup Language',
     'antwort4': 'High-Level Markup Language',
-    'lösung': 'antwort1'
+    'lösung': 'answer1',
+    'letter': 'a'
 },
 {
     'frage': 'Welches Tag wird verwendet, um einen Absatz zu kennzeichnen?',
@@ -12,7 +13,8 @@ let questions = [{
     'antwort2': 'a',
     'antwort3': 'br',
     'antwort4': 'p',
-    'lösung': 'antwort4'
+    'lösung': 'answer4',
+    'letter': 'd'
 },
 {
     'frage': 'Welches "Tag" wird verwendet, um eine Liste mit numerierten Aufzählungspunkten zu erstellen?',
@@ -20,7 +22,8 @@ let questions = [{
     'antwort2': 'ol',
     'antwort3': 'li',
     'antwort4': 'td',
-    'lösung': 'antwort2'
+    'lösung': 'answer2',
+    'letter': 'b'
 },
 {
     'frage': 'Welches Attribut wird verwendet, um einen Link zu einer anderen Webseite festzulegen?',
@@ -28,7 +31,8 @@ let questions = [{
     'antwort2': 'src',
     'antwort3': 'href',
     'antwort4': 'link',
-    'lösung': 'antwort3'
+    'lösung': 'answer3',
+    'letter': 'c'
 },
 {
     'frage': 'Welches Tag wird verwendet, um ein Bild in eine Webseite einzufügen?',
@@ -36,7 +40,8 @@ let questions = [{
     'antwort2': 'image',
     'antwort3': 'picture',
     'antwort4': 'photo',
-    'lösung': 'antwort1'
+    'lösung': 'answer1',
+    'letter': 'a'
 },
 {
     'frage': 'Welches Tag wird verwendet, um eine Überschrift der höchsten Ebene anzugeben',
@@ -44,7 +49,8 @@ let questions = [{
     'antwort2': 'caption',
     'antwort3': 'head',
     'antwort4': 'h1',
-    'lösung': 'antwort4'
+    'lösung': 'answer4',
+    'letter': 'd'
 },
 {
     'frage': 'Welches Attribut wird verwendet, um den Hintergrund einer Webseite festzulegen?',
@@ -52,12 +58,14 @@ let questions = [{
     'antwort2': 'background',
     'antwort3': 'placeholder',
     'antwort4': 'img',
-    'lösung': 'antwort2'
+    'lösung': 'answer2',
+    'letter': 'b'
 },
 
 ]
 let questionCounter = 0;
-let pageCounter = 1
+let pageCounter = 1;
+let rightQuestions = 0;
 
 function init() {
     let question = document.getElementById('question')
@@ -65,7 +73,7 @@ function init() {
     let answer2 = document.getElementById('answer2')
     let answer3 = document.getElementById('answer3')
     let answer4 = document.getElementById('answer4')
-    
+
     question.innerHTML = questions[questionCounter].frage
     answer1.innerHTML = questions[questionCounter].antwort1
     answer2.innerHTML = questions[questionCounter].antwort2
@@ -75,21 +83,61 @@ function init() {
     showCurrentPage()
 }
 
-function showCurrentPage(){
+function showCurrentPage() {
     let page = document.getElementById('page')
     let pages = document.getElementById('pages')
 
     page.innerHTML = pageCounter
-    pages.innerHTML = questions.length 
+    pages.innerHTML = questions.length
 }
 
-function nextQuestion(){
+function nextQuestion() {
     questionCounter++;
     pageCounter++;
     init()
 }
 
+function checkAnswer(answer, letter) {
+
+    if (answer == questions[questionCounter].lösung) {
+        showRightAnswer(answer, letter)
+        rightQuestions++;
+    } else {
+        showWrongAnswer(answer, letter);
+        showRightAnswer(questions[questionCounter].lösung,questions[questionCounter].letter)
+    }
+}
+
+
+function showRightAnswer(answerP, leterP) {
+    let answer = document.getElementsByClassName(`${answerP}`)[0]
+    let leter = document.getElementById(`${leterP}`)
+    let character = document.querySelector(`#${leterP} b`)
+
+    answer.classList.add('rightAnswer')
+    leter.classList.add('rightAnswer2')
+    character.classList.add('textWhite')
+
+}
+
+function showWrongAnswer(answerP, leterP) {
+    let answer = document.getElementsByClassName(`${answerP}`)[0]
+    let leter = document.getElementById(`${leterP}`)
+    let character = document.querySelector(`#${leterP} b`)
+
+
+    answer.classList.add('wrongAnswer')
+    leter.classList.add('wrongAnswer2')
+    character.classList.add('textWhite')
+}
+
+
+function showRightAnswer2() {
+
+}
 
 
 
-console.log(document.getElementById('page').innerHTML)
+
+
+console.log('läuft')
