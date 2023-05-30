@@ -97,6 +97,8 @@ function nextQuestion() {
     pageCounter++;
     init()
     ableNextQuestion(true)
+    removeColors()
+    answerChecked = false
 }
 
 function checkAnswer(answer, letter) {
@@ -105,7 +107,7 @@ function checkAnswer(answer, letter) {
         if (answer == questions[questionCounter].lösung) {
             showAnswer(answer, letter, 'rightAnswer', 'rightAnswer2')
             rightQuestions++;
-            
+
         } else {
             showAnswer(answer, letter, 'wrongAnswer', 'wrongAnswer2');
             setTimeout(() => {
@@ -131,7 +133,21 @@ function showAnswer(answerP, letterP, Answer, Answer2) {
 }
 
 function removeColors() {
- 
+    let answer = document.getElementsByClassName('answer')
+    let viereck = document.getElementsByClassName('viereck')
+    let character = document.querySelectorAll('.viereck > b')
+
+    for (let i = 0; i < answer.length; i++) {
+        const line = answer[i];
+        const ecke = viereck[i];
+        const b = character[i]
+        b.classList.remove('textWhite')
+        line.classList.remove('wrongAnswer')
+        ecke.classList.remove('wrongAnswer2')
+        line.classList.remove('rightAnswer')
+        ecke.classList.remove('rightAnswer2')
+    }
+
 }
 
 function ableNextQuestion(boolean) {
