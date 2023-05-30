@@ -114,9 +114,49 @@ nav {
     background-color: red;
 }
 
-#endscreen{
+#endscreen {
     align-items: center;
     justify-content: center;
     width: 100%;
+    text-align: center;
 }
 
+#circle {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: bisque;
+    border-radius: 100%;
+    width: 500px;
+    height: 500px;
+}
+
+.link {
+   
+    background-color: orangered;
+    color: white;
+    
+    margin-top: 10px;
+    width: 50%;
+    text-decoration: none;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    align-self: center;
+}
+
+.link:hover {
+    color: orange;
+    background-color: none;
+}
+
+#score,
+#scores {
+    font-size: 1.2rem;
+}
+
+.end-img {
+    object-fit: cover;
+    width: 300px;
+    align-self: center;
+    margin-bottom: 20px;
+}
