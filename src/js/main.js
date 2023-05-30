@@ -66,6 +66,7 @@ let questions = [{
 let questionCounter = 0;
 let pageCounter = 1;
 let rightQuestions = 0;
+let answerChecked = false
 
 function init() {
     let question = document.getElementById('question')
@@ -95,49 +96,49 @@ function nextQuestion() {
     questionCounter++;
     pageCounter++;
     init()
+    ableNextQuestion(true)
 }
 
 function checkAnswer(answer, letter) {
 
-    if (answer == questions[questionCounter].lösung) {
-        showRightAnswer(answer, letter)
-        rightQuestions++;
-    } else {
-        showWrongAnswer(answer, letter);
-        showRightAnswer(questions[questionCounter].lösung,questions[questionCounter].letter)
+    if (answerChecked === false) {
+        if (answer == questions[questionCounter].lösung) {
+            showAnswer(answer, letter, 'rightAnswer', 'rightAnswer2')
+            rightQuestions++;
+            
+        } else {
+            showAnswer(answer, letter, 'wrongAnswer', 'wrongAnswer2');
+            setTimeout(() => {
+                showAnswer(questions[questionCounter].lösung, questions[questionCounter].letter, 'rightAnswer', 'rightAnswer2')
+            }, 500);
+
+        }
+        answerChecked = true
+        ableNextQuestion(false)
     }
+
 }
 
-
-function showRightAnswer(answerP, leterP) {
+function showAnswer(answerP, letterP, Answer, Answer2) {
     let answer = document.getElementsByClassName(`${answerP}`)[0]
-    let leter = document.getElementById(`${leterP}`)
-    let character = document.querySelector(`#${leterP} b`)
+    let leter = document.getElementById(`${letterP}`)
+    let character = document.querySelector(`#${letterP} b`)
 
-    answer.classList.add('rightAnswer')
-    leter.classList.add('rightAnswer2')
+    answer.classList.add(`${Answer}`)
+    leter.classList.add(`${Answer2}`)
     character.classList.add('textWhite')
 
 }
 
-function showWrongAnswer(answerP, leterP) {
-    let answer = document.getElementsByClassName(`${answerP}`)[0]
-    let leter = document.getElementById(`${leterP}`)
-    let character = document.querySelector(`#${leterP} b`)
-
-
-    answer.classList.add('wrongAnswer')
-    leter.classList.add('wrongAnswer2')
-    character.classList.add('textWhite')
+function removeColors() {
+ 
 }
 
-
-function showRightAnswer2() {
-
+function ableNextQuestion(boolean) {
+    let btn = document.getElementsByClassName('btn')
+    btn[0].disabled = boolean;
 }
-
-
-
-
 
 console.log('läuft')
+
+

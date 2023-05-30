@@ -47,7 +47,7 @@
           <!-- <p class="card-text">Wilkommen in meinem Quiz!</p> -->
           <h3 id="question" class="card-title text-center"></h3>
 
-          <div onclick="checkAnswer('answer1','a')" class="card mb-2 answer answer1">
+          <div  onclick="checkAnswer('answer1','a')" class="card mb-2 answer answer1">
             <div class="card-body d-flex flex-row align-items-center" >
               <div id="a" class="viereck"><b>A</b></div> <span id="answer1"></span>
             </div>
@@ -70,7 +70,7 @@
           <div class="question-footer">
             <span ><b id="page"></b> von <b id="pages"></b> Fragen</span>
 
-            <button onclick="nextQuestion()" type="button" class="btn btn-primary">Nächste Frage</button>
+            <button onclick="nextQuestion()" type="button" disabled class="btn btn-primary">Nächste Frage</button>
 
           </div>
         </div>
