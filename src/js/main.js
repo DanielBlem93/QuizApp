@@ -68,6 +68,7 @@ let pageCounter = 1;
 let rightQuestions = 0;
 let answerChecked = false
 
+// initalise the curent question
 function init() {
     let question = document.getElementById('question')
     let answer1 = document.getElementById('answer1')
@@ -75,15 +76,19 @@ function init() {
     let answer3 = document.getElementById('answer3')
     let answer4 = document.getElementById('answer4')
 
-    question.innerHTML = questions[questionCounter].frage
-    answer1.innerHTML = questions[questionCounter].antwort1
-    answer2.innerHTML = questions[questionCounter].antwort2
-    answer3.innerHTML = questions[questionCounter].antwort3
-    answer4.innerHTML = questions[questionCounter].antwort4
+    if (pageCounter <= questions.length ) {
+        question.innerHTML = questions[questionCounter].frage
+        answer1.innerHTML = questions[questionCounter].antwort1
+        answer2.innerHTML = questions[questionCounter].antwort2
+        answer3.innerHTML = questions[questionCounter].antwort3
+        answer4.innerHTML = questions[questionCounter].antwort4
 
-    showCurrentPage()
+        showCurrentPage()
+    }
+
 }
 
+// shows the number of current questions below the answers
 function showCurrentPage() {
     let page = document.getElementById('page')
     let pages = document.getElementById('pages')
@@ -92,15 +97,25 @@ function showCurrentPage() {
     pages.innerHTML = questions.length
 }
 
+// generates the next question on clicking the button
 function nextQuestion() {
     questionCounter++;
     pageCounter++;
+    showEndscreen()
     init()
     ableNextQuestion(true)
     removeColors()
     answerChecked = false
+
 }
 
+// disables the button Nächste Frage till a answer is clicked
+function ableNextQuestion(boolean) {
+    let btn = document.getElementsByClassName('btn')
+    btn[0].disabled = boolean;
+}
+
+// checks if the answer is right or not. Also checks is the question already checks?
 function checkAnswer(answer, letter) {
 
     if (answerChecked === false) {
@@ -120,7 +135,7 @@ function checkAnswer(answer, letter) {
     }
 
 }
-
+// shows the right or wrong answer
 function showAnswer(answerP, letterP, Answer, Answer2) {
     let answer = document.getElementsByClassName(`${answerP}`)[0]
     let leter = document.getElementById(`${letterP}`)
@@ -129,9 +144,8 @@ function showAnswer(answerP, letterP, Answer, Answer2) {
     answer.classList.add(`${Answer}`)
     leter.classList.add(`${Answer2}`)
     character.classList.add('textWhite')
-
 }
-
+// removes all colors from every answer option
 function removeColors() {
     let answer = document.getElementsByClassName('answer')
     let viereck = document.getElementsByClassName('viereck')
@@ -150,9 +164,14 @@ function removeColors() {
 
 }
 
-function ableNextQuestion(boolean) {
-    let btn = document.getElementsByClassName('btn')
-    btn[0].disabled = boolean;
+function showEndscreen() {
+    let quiz = document.getElementById('quiz')
+    let endscreen = document.getElementById('endscreen')
+
+    if (pageCounter == 8) {
+        quiz.style.display = 'none'
+        endscreen.style.display = 'flex'
+    }
 }
 
 console.log('läuft')
