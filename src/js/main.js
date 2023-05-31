@@ -1,4 +1,4 @@
-let questions = [{
+const htmlQuestions = [{
     'frage': 'Was ist die Abkürzung für HTML',
     'antwort1': 'HyperText Markup Language',
     'antwort2': 'Home Tool Markup Language',
@@ -62,47 +62,182 @@ let questions = [{
     'letter': 'b'
 },
 
-]
+];
+
+const cssQuestions = [
+    {
+        'frage': 'Was ist der Zweck von CSS?',
+        'antwort1': 'Um den Inhalt einer Webseite zu strukturieren',
+        'antwort2': 'Um das Aussehen und Layout einer Webseite zu gestalten',
+        'antwort3': 'Um interaktive Funktionen auf einer Webseite zu implementieren',
+        'antwort4': 'Um die Performance einer Webseite zu optimieren',
+        'lösung': 'answer2',
+        'letter': 'b'
+    },
+    {
+        'frage': 'Wie bindet man eine externe CSS-Datei in eine HTML-Seite ein?',
+        'antwort1': '&lt;link rel="stylesheet" href="styles.css"&gt;',
+        'antwort2': '&lt;style src="styles.css"&gt;&lt;/style&gt;',
+        'antwort3': '&lt;script src="styles.css"&gt;&lt;/script&gt;',
+        'antwort4': '&lt;css&gt;@import "styles.css";&lt;/css&gt;',
+        'lösung': 'answer1',
+        'letter': 'a'
+    },
+    {
+        'frage': 'Welches Attribut wird verwendet, um den Textstil in CSS anzupassen?',
+        'antwort1': 'text-style',
+        'antwort2': 'font-family',
+        'antwort3': 'text-decoration',
+        'antwort4': 'font-style',
+        'lösung': 'answer4',
+        'letter': 'd'
+    },
+    {
+        'frage': 'Welche Einheit wird in CSS verwendet, um die Größe eines Elements relativ zur Schriftgröße zu definieren?',
+        'antwort1': 'em',
+        'antwort2': 'px',
+        'antwort3': 'rem',
+        'antwort4': 'pt',
+        'lösung': 'answer1',
+        'letter': 'a'
+    },
+    {
+        'frage': 'Welche Eigenschaft wird verwendet, um den Abstand zwischen den inneren Rändern eines Elements einzustellen?',
+        'antwort1': 'margin',
+        'antwort2': 'spaceing',
+        'antwort3': 'border',
+        'antwort4': 'padding',
+        'lösung': 'answer4',
+        'letter': 'd'
+    },
+    {
+        'frage': 'Wie selektiert man alle &lt;a&gt;-Elemente, die sich innerhalb eines bestimmten Elements mit der Klasse "container" befinden?',
+        'antwort1': '.container &gt; a',
+        'antwort2': '.container a',
+        'antwort3': 'container-a',
+        'antwort4': '#container a',
+        'lösung': 'answer2',
+        'letter': 'b'
+    },
+    {
+        'frage': 'Welche CSS-Eigenschaft wird verwendet, um den Hintergrund einer Webseite festzulegen?',
+        'antwort1': 'color',
+        'antwort2': 'image-rendering',
+        'antwort3': 'background',
+        'antwort4': 'img',
+        'lösung': 'answer3',
+        'letter': 'c'
+    }
+];
+
+const jsQuestions = [
+    {
+        'frage': 'Was ist JavaScript?',
+        'antwort1': 'Ein serverseitiges Framework',
+        'antwort2': 'Ein Datenbankmanagementsystem',
+        'antwort3': 'Eine Programmiersprache für Webentwicklung',
+        'antwort4': 'Ein Texteditor für Entwickler',
+        'lösung': 'answer3',
+        'letter': 'c'
+    },
+    {
+        'frage': 'Wie deklariert man eine Variable in JavaScript?',
+        'antwort1': 'var myVariable;',
+        'antwort2': 'let myVariable;',
+        'antwort3': 'const myVariable;',
+        'antwort4': 'Alle oben genannten',
+        'lösung': 'answer4',
+        'letter': 'd'
+    },
+    {
+        'frage': 'Welches Schlüsselwort wird verwendet, um eine Funktion in JavaScript zu definieren?',
+        'antwort1': 'function',
+        'antwort2': 'method',
+        'antwort3': 'procedure',
+        'antwort4': 'def',
+        'lösung': 'answer1',
+        'letter': 'a'
+    },
+    {
+        'frage': 'Wie ruft man eine Funktion in JavaScript auf?',
+        'antwort1': 'let Function()',
+        'antwort2': 'executeFunction(){}',
+        'antwort3': 'myFunction()',
+        'antwort4': 'alle oben genannten',
+        'lösung': 'answer3',
+        'letter': 'c'
+    },
+    {
+        'frage': 'Welches Zeichen wird in JavaScript verwendet, um eine Zeichenkette zu kennzeichnen?',
+        'antwort1': '"',
+        'antwort2': "'",
+        'antwort3': '`',
+        'antwort4': 'Alle oben genannten',
+        'lösung': 'answer4',
+        'letter': 'd'
+    },
+    {
+        'frage': 'Wie vergleicht man zwei Werte auf strikte Gleichheit in JavaScript?',
+        'antwort1': '==',
+        'antwort2': '===',
+        'antwort3': '!=',
+        'antwort4': '!==',
+        'lösung': 'answer2',
+        'letter': 'b'
+    },
+    {
+        'frage': 'Was ist das DOM in Bezug auf JavaScript?',
+        'antwort1': 'Eine Programmierschnittstelle zur Manipulation von HTML-Elementen',
+        'antwort2': 'Eine Programmiersprache',
+        'antwort3': 'Ein Netzwerkprotokoll',
+        'antwort4': 'Ein Datenbank System',
+        'lösung': 'answer4',
+        'letter': 'a'
+    }
+];
+
 let questionCounter = 0;
 let pageCounter = 1;
 let rightQuestions = 0;
 let answerChecked = false
+let WhatKindOfQuizIsRunning = htmlQuestions
 
 // initalise the curent question
-function init() {
+function init(choosenQuiz) {
     let question = document.getElementById('question')
     let answer1 = document.getElementById('answer1')
     let answer2 = document.getElementById('answer2')
     let answer3 = document.getElementById('answer3')
     let answer4 = document.getElementById('answer4')
 
-    if (pageCounter <= questions.length ) {
-        question.innerHTML = questions[questionCounter].frage
-        answer1.innerHTML = questions[questionCounter].antwort1
-        answer2.innerHTML = questions[questionCounter].antwort2
-        answer3.innerHTML = questions[questionCounter].antwort3
-        answer4.innerHTML = questions[questionCounter].antwort4
+    if (pageCounter <= choosenQuiz.length) {
+        question.innerHTML = choosenQuiz[questionCounter].frage
+        answer1.innerHTML = choosenQuiz[questionCounter].antwort1
+        answer2.innerHTML = choosenQuiz[questionCounter].antwort2
+        answer3.innerHTML = choosenQuiz[questionCounter].antwort3
+        answer4.innerHTML = choosenQuiz[questionCounter].antwort4
 
-        showCurrentPage()
+        showCurrentPage(choosenQuiz)
     }
 
 }
 
 // shows the number of current questions below the answers
-function showCurrentPage() {
+function showCurrentPage(choosenQuiz) {
     let page = document.getElementById('page')
     let pages = document.getElementById('pages')
-
     page.innerHTML = pageCounter
-    pages.innerHTML = questions.length
+    pages.innerHTML = choosenQuiz.length
 }
+
+
 
 // generates the next question on clicking the button
 function nextQuestion() {
     questionCounter++;
     pageCounter++;
     showEndscreen()
-    init()
+    init(WhatKindOfQuizIsRunning)
     ableNextQuestion(true)
     removeColors()
     answerChecked = false
@@ -119,19 +254,21 @@ function ableNextQuestion(boolean) {
 function checkAnswer(answer, letter) {
 
     if (answerChecked === false) {
-        if (answer == questions[questionCounter].lösung) {
+        if (answer == WhatKindOfQuizIsRunning[questionCounter].lösung) {
             showAnswer(answer, letter, 'rightAnswer', 'rightAnswer2')
             rightQuestions++;
 
         } else {
             showAnswer(answer, letter, 'wrongAnswer', 'wrongAnswer2');
             setTimeout(() => {
-                showAnswer(questions[questionCounter].lösung, questions[questionCounter].letter, 'rightAnswer', 'rightAnswer2')
+                showAnswer(WhatKindOfQuizIsRunning[questionCounter].lösung, WhatKindOfQuizIsRunning[questionCounter].letter, 'rightAnswer', 'rightAnswer2')
             }, 500);
 
         }
         answerChecked = true
-        ableNextQuestion(false)
+        setTimeout(() => {
+            ableNextQuestion(false)
+        }, 500);
     }
 
 }
@@ -172,6 +309,32 @@ function showEndscreen() {
         quiz.style.display = 'none'
         endscreen.style.display = 'flex'
     }
+}
+
+function startQuiz(choosenQuiz) {
+    let homeScreen = document.getElementById('home-screen');
+    let quiz = document.getElementById('quiz');
+    homeScreen.style.display = 'none'
+    quiz.style.display = 'flex'
+    init(choosenQuiz)
+    whatKindOfQuiz(choosenQuiz);
+
+}
+
+function whatKindOfQuiz(choosenQuiz) {
+    let quiz = choosenQuiz
+    switch (quiz) {
+        case htmlQuestions:
+            WhatKindOfQuizIsRunning = htmlQuestions
+            break;
+        case cssQuestions:
+            WhatKindOfQuizIsRunning = cssQuestions
+            break;
+        case jsQuestions:
+            WhatKindOfQuizIsRunning = jsQuestions
+            break;
+    }
+
 }
 
 console.log('läuft')

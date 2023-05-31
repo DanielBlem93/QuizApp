@@ -17,7 +17,7 @@
   <title>Quiz App</title>
 </head>
 
-<body onload="init()">
+<body onload="">
 
 
   <header class="navbar bg-body-tertiary">
@@ -35,9 +35,9 @@
           <img class="quiz-logo" src="src/img/logo 2.png" alt="">
           <div>
             <div class="link-container d-flex flex-column align-items-start">
-              <a class="nav-link active text-white" aria-current="page" href="#">HTML</a>
-              <a class="nav-link disabled text-white" href="#">CSS</a>
-              <a class="nav-link disabled text-white" href="#">JS</a>
+              <a onclick="startQuiz(htmlQuestions)" class="nav-link active text-white" href="#">HTML</a>
+              <a onclick="startQuiz(cssQuestions)" class="nav-link text-white" href="#">CSS</a>
+              <a onclick="startQuiz(jsQuestions)" class="nav-link text-white" href="#">JS</a>
             </div>
           </div>
 
@@ -93,59 +93,10 @@
       </div>
     </div>
 
-
   </main>
-
-
-
-
-
-
-
 
   <script src="src/js/main.js"></script>
 </body>
 
 </html>
 
-<!-- Frage 1: Was ist die Abkürzung für HTML?
-A) HyperText Markup Language
-B) Home Tool Markup Language
-C) Hyperlinks and Text Markup Language
-D) High-Level Markup Language
-
-Frage 2: Welches Tag wird verwendet, um einen Absatz zu kennzeichnen?
-A) <p>
-B) <a>
-C) <div>
-D) <span>
-
-Frage 3: Welches "Tag" wird verwendet, um eine Liste mit numerierten Aufzählungspunkten zu erstellen?
-A) <ul>
-B) <ol>
-C) <li>
-D) <dl>
-
-Frage 4: Welches Attribut wird verwendet, um einen Link zu einer anderen Webseite festzulegen?
-A) href
-B) src
-C) link
-D) url
-
-Frage 5: Welches Tag wird verwendet, um ein Bild in eine Webseite einzufügen?
-A) <img>
-B) <image>
-C) <picture>
-D) <photo>
-
-Frage 6: Welches Tag wird verwendet, um eine Überschrift der höchsten Ebene anzugeben?
-A) <h1>
-B) <h2>
-C) <h3>
-D) <h4>
-
-Frage 7: Welches Attribut wird verwendet, um den Hintergrund einer Webseite festzulegen?
-A) background
-B) color
-C) style
-D) bgcolor -->
