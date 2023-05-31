@@ -140,6 +140,7 @@ nav {
     border-radius: 100%;
     width: 500px;
     height: 500px;
+  
 }
 
 .link {
@@ -154,6 +155,10 @@ nav {
     border-radius: 10px;
     align-self: center;
 }
+
+/* .disabled{
+    color: lightgray !important;
+} */
 
 .link:hover {
     color: orange;

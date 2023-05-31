@@ -202,6 +202,33 @@ let rightQuestions = 0;
 let answerChecked = false
 let WhatKindOfQuizIsRunning = htmlQuestions
 
+function startQuiz(choosenQuiz) {
+
+    showQuizScreen()
+    init(choosenQuiz)
+    whatKindOfQuiz(choosenQuiz);
+
+}
+
+function showQuizScreen() {
+
+    let homeScreen = document.getElementById('home-screen');
+    let quiz = document.getElementById('quiz');
+    homeScreen.style.display = 'none'
+    quiz.style.display = 'flex'
+    disableLinks()
+
+}
+
+function disableLinks() {
+    let links = document.getElementsByClassName('nav-link')
+
+    for (let i = 0; i < links.length; i++) {
+        const link = links[i];
+        link.classList.add('disabled')
+    }
+}
+
 // initalise the curent question
 function init(choosenQuiz) {
     let question = document.getElementById('question')
@@ -222,32 +249,30 @@ function init(choosenQuiz) {
 
 }
 
+function whatKindOfQuiz(choosenQuiz) {
+    let quiz = choosenQuiz
+    switch (quiz) {
+        case htmlQuestions:
+            WhatKindOfQuizIsRunning = htmlQuestions
+            break;
+        case cssQuestions:
+            WhatKindOfQuizIsRunning = cssQuestions
+            break;
+        case jsQuestions:
+            WhatKindOfQuizIsRunning = jsQuestions
+            break;
+    }
+
+}
+
+
+
 // shows the number of current questions below the answers
 function showCurrentPage(choosenQuiz) {
     let page = document.getElementById('page')
     let pages = document.getElementById('pages')
     page.innerHTML = pageCounter
     pages.innerHTML = choosenQuiz.length
-}
-
-
-
-// generates the next question on clicking the button
-function nextQuestion() {
-    questionCounter++;
-    pageCounter++;
-    showEndscreen()
-    init(WhatKindOfQuizIsRunning)
-    ableNextQuestion(true)
-    removeColors()
-    answerChecked = false
-
-}
-
-// disables the button Nächste Frage till a answer is clicked
-function ableNextQuestion(boolean) {
-    let btn = document.getElementsByClassName('btn')
-    btn[0].disabled = boolean;
 }
 
 // checks if the answer is right or not. Also checks is the question already checks?
@@ -272,6 +297,7 @@ function checkAnswer(answer, letter) {
     }
 
 }
+
 // shows the right or wrong answer
 function showAnswer(answerP, letterP, Answer, Answer2) {
     let answer = document.getElementsByClassName(`${answerP}`)[0]
@@ -282,6 +308,28 @@ function showAnswer(answerP, letterP, Answer, Answer2) {
     leter.classList.add(`${Answer2}`)
     character.classList.add('textWhite')
 }
+
+// disables the button Nächste Frage till a answer is clicked
+function ableNextQuestion(boolean) {
+    let btn = document.getElementsByClassName('btn')
+    btn[0].disabled = boolean;
+}
+
+// generates the next question on clicking the button
+function nextQuestion() {
+    questionCounter++;
+    pageCounter++;
+    showEndscreen()
+    init(WhatKindOfQuizIsRunning)
+    ableNextQuestion(true)
+    removeColors()
+    answerChecked = false
+
+}
+
+
+
+
 // removes all colors from every answer option
 function removeColors() {
     let answer = document.getElementsByClassName('answer')
@@ -311,31 +359,10 @@ function showEndscreen() {
     }
 }
 
-function startQuiz(choosenQuiz) {
-    let homeScreen = document.getElementById('home-screen');
-    let quiz = document.getElementById('quiz');
-    homeScreen.style.display = 'none'
-    quiz.style.display = 'flex'
-    init(choosenQuiz)
-    whatKindOfQuiz(choosenQuiz);
 
-}
 
-function whatKindOfQuiz(choosenQuiz) {
-    let quiz = choosenQuiz
-    switch (quiz) {
-        case htmlQuestions:
-            WhatKindOfQuizIsRunning = htmlQuestions
-            break;
-        case cssQuestions:
-            WhatKindOfQuizIsRunning = cssQuestions
-            break;
-        case jsQuestions:
-            WhatKindOfQuizIsRunning = jsQuestions
-            break;
-    }
 
-}
+
 
 console.log('läuft')
 
