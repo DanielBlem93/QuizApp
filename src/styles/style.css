@@ -58,7 +58,7 @@ nav {
 }
 
 .main-body {
-    background-image: url(../img/bg\ b.png);
+    background-image: url(../img/bgb.png);
     background-repeat: no-repeat !important;
     background-size: cover !important;
     background-position: center;
@@ -92,7 +92,18 @@ nav {
     width: 70%;
 }
 
-/* js classes */
+/* styling in usage with JS*/
+
+#home-screen{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    background-image: url(../img/bgb.png);
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center;
+}
 
 .rightAnswer {
     background-color: lightgreen;
