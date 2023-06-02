@@ -216,16 +216,16 @@ function showQuizScreen() {
     let quiz = document.getElementById('quiz');
     homeScreen.style.display = 'none'
     quiz.style.display = 'flex'
-    disableLinks()
+    disableLinks('add')
 
 }
 
-function disableLinks() {
+function disableLinks(action) {
     let links = document.getElementsByClassName('nav-link')
 
     for (let i = 0; i < links.length; i++) {
         const link = links[i];
-        link.classList.add('disabled')
+        link.classList[action]('disabled')
     }
 }
 
@@ -262,7 +262,6 @@ function whatKindOfQuiz(choosenQuiz) {
             WhatKindOfQuizIsRunning = jsQuestions
             break;
     }
-
 }
 
 
@@ -327,9 +326,6 @@ function nextQuestion() {
 
 }
 
-
-
-
 // removes all colors from every answer option
 function removeColors() {
     let answer = document.getElementsByClassName('answer')
@@ -357,10 +353,27 @@ function showEndscreen() {
         quiz.style.display = 'none'
         endscreen.style.display = 'flex'
     }
+    calcRightAnswers()
+}
+function calcRightAnswers() {
+    let score = document.getElementById('score')
+    score.innerHTML = rightQuestions
 }
 
+function playAgain() {
+    questionCounter = 0;
+    pageCounter = 1;
+    rightQuestions = 0;
+    let quiz = document.getElementById('quiz')
+    let endScreen = document.getElementById('endscreen')
+    let homeScreen = document.getElementById('home-screen')
 
+    quiz.style.display = 'none'
+    endScreen.style.display = 'none'
+    homeScreen.style.display = 'flex'
+    disableLinks('remove')
 
+}
 
 
 
