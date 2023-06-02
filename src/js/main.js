@@ -202,6 +202,7 @@ let rightQuestions = 0;
 let answerChecked = false
 let WhatKindOfQuizIsRunning = htmlQuestions
 
+// starts the quiz
 function startQuiz(choosenQuiz) {
 
     showQuizScreen()
@@ -210,6 +211,7 @@ function startQuiz(choosenQuiz) {
 
 }
 
+// siwtches from the Start screen to the quiz sequenz
 function showQuizScreen() {
 
     let homeScreen = document.getElementById('home-screen');
@@ -219,7 +221,7 @@ function showQuizScreen() {
     disableLinks('add')
 
 }
-
+// adds a class to the html to disable the links while the quiz is runnig
 function disableLinks(action) {
     let links = document.getElementsByClassName('nav-link')
 
@@ -249,6 +251,14 @@ function init(choosenQuiz) {
 
 }
 
+// shows the number of current questions below the answers
+function showCurrentPage(choosenQuiz) {
+    let page = document.getElementById('page')
+    let pages = document.getElementById('pages')
+    page.innerHTML = pageCounter
+    pages.innerHTML = choosenQuiz.length
+}
+// saves what kind of quiz is actually running in variable
 function whatKindOfQuiz(choosenQuiz) {
     let quiz = choosenQuiz
     switch (quiz) {
@@ -262,16 +272,6 @@ function whatKindOfQuiz(choosenQuiz) {
             WhatKindOfQuizIsRunning = jsQuestions
             break;
     }
-}
-
-
-
-// shows the number of current questions below the answers
-function showCurrentPage(choosenQuiz) {
-    let page = document.getElementById('page')
-    let pages = document.getElementById('pages')
-    page.innerHTML = pageCounter
-    pages.innerHTML = choosenQuiz.length
 }
 
 // checks if the answer is right or not. Also checks is the question already checks?
@@ -326,7 +326,7 @@ function nextQuestion() {
 
 }
 
-// removes all colors from every answer option
+// removes all colors from every answer 
 function removeColors() {
     let answer = document.getElementsByClassName('answer')
     let viereck = document.getElementsByClassName('viereck')
@@ -345,21 +345,23 @@ function removeColors() {
 
 }
 
+// shows the Endscreen of the quiz when its finished
 function showEndscreen() {
     let quiz = document.getElementById('quiz')
     let endscreen = document.getElementById('endscreen')
 
-    if (pageCounter == 8) {
+    if (pageCounter > WhatKindOfQuizIsRunning.length) {
         quiz.style.display = 'none'
         endscreen.style.display = 'flex'
     }
     calcRightAnswers()
 }
+// shows how many right answers the play got at the end
 function calcRightAnswers() {
     let score = document.getElementById('score')
     score.innerHTML = rightQuestions
 }
-
+// resets the app to the begining state
 function playAgain() {
     questionCounter = 0;
     pageCounter = 1;
@@ -373,6 +375,10 @@ function playAgain() {
     homeScreen.style.display = 'flex'
     disableLinks('remove')
 
+}
+
+function share(){
+    alert('Die teilen funktion ist derzeit inaktiv. Versuch es ein andermal nochmal')
 }
 
 
