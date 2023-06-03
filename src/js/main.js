@@ -277,7 +277,6 @@ function whatKindOfQuiz(choosenQuiz) {
     }
 }
 
-
 // checks if the answer is right or not. Also checks is the question already checks?
 function checkAnswer(answer, letter) {
 
@@ -298,7 +297,6 @@ function checkAnswer(answer, letter) {
             ableNextQuestion(false)
         }, 500);
     }
-
 }
 
 // shows the right or wrong answer
@@ -356,7 +354,6 @@ function removeColors() {
         line.classList.remove('rightAnswer')
         ecke.classList.remove('rightAnswer2')
     }
-
 }
 
 // shows the Endscreen of the quiz when its finished
@@ -370,11 +367,13 @@ function showEndscreen() {
     }
     calcRightAnswers()
 }
+
 // shows how many right answers the play got at the end
 function calcRightAnswers() {
     let score = document.getElementById('score')
     score.innerHTML = rightQuestions
 }
+
 // resets the app to the begining state
 function playAgain() {
 
@@ -400,7 +399,7 @@ function resetProgressBar() {
     progress[0].style = `width: 10%`
 }
 
-// removes the border on the active link
+// removes the border on the active quiz
 function resetActiveQuiz() {
     let link = document.getElementsByClassName('nav-link');
     for (let i = 0; i < link.length; i++) {
