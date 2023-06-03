@@ -208,7 +208,6 @@ function startQuiz(choosenQuiz) {
     showQuizScreen()
     init(choosenQuiz)
     whatKindOfQuiz(choosenQuiz);
-
 }
 
 // siwtches from the Start screen to the quiz sequenz
@@ -257,21 +256,27 @@ function showCurrentPage(choosenQuiz) {
     page.innerHTML = pageCounter
     pages.innerHTML = choosenQuiz.length
 }
-// saves what kind of quiz is actually running in variable
+// saves what kind of quiz is actually running in variable and 
+// shows wich quiz is actually running on the left nav bar
 function whatKindOfQuiz(choosenQuiz) {
+    let link = document.getElementsByClassName('nav-link')
     let quiz = choosenQuiz
     switch (quiz) {
         case htmlQuestions:
             WhatKindOfQuizIsRunning = htmlQuestions
+            link[0].classList.add('active-quiz')
             break;
         case cssQuestions:
             WhatKindOfQuizIsRunning = cssQuestions
+            link[1].classList.add('active-quiz')
             break;
         case jsQuestions:
             WhatKindOfQuizIsRunning = jsQuestions
+            link[2].classList.add('active-quiz')
             break;
     }
 }
+
 
 // checks if the answer is right or not. Also checks is the question already checks?
 function checkAnswer(answer, letter) {
@@ -325,7 +330,7 @@ function nextQuestion() {
     progressBar()
 
 }
-
+// handles the logic of the progressbar
 function progressBar() {
     let progress = document.getElementsByClassName('progress-bar')
     percent = pageCounter / WhatKindOfQuizIsRunning.length
@@ -385,6 +390,7 @@ function playAgain() {
     homeScreen.style.display = 'flex'
     disableLinks('remove')
     resetProgressBar()
+    resetActiveQuiz()
 }
 
 // sets everything to 0 on the progressbar
@@ -394,12 +400,15 @@ function resetProgressBar() {
     progress[0].style = `width: 10%`
 }
 
+// removes the border on the active link
+function resetActiveQuiz() {
+    let link = document.getElementsByClassName('nav-link');
+    for (let i = 0; i < link.length; i++) {
+        link[i].classList.remove('active-quiz');
+    }
+}
+// its not a function
 function share() {
     alert('Die teilen funktion ist derzeit inaktiv. Versuch es ein andermal nochmal')
 }
-
-
-
 console.log('app is working')
-
-

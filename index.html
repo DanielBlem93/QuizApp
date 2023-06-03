@@ -29,15 +29,15 @@
 
   <main>
     <div id="quizapp">
-      <div class="card quiz-card flex-row">
-        <nav class="nav flex-column d-flex align-items-center ">
+      <div class="card quiz-card">
+        <nav class="nav">
 
           <img class="quiz-logo" src="src/img/logo 2.png" alt="">
           <div>
-            <div class="link-container d-flex flex-column align-items-start">
-              <a onclick="startQuiz(htmlQuestions)" class="nav-link active text-white" href="#">HTML</a>
-              <a onclick="startQuiz(cssQuestions)" class="nav-link text-white" href="#">CSS</a>
-              <a onclick="startQuiz(jsQuestions)" class="nav-link text-white" href="#">JS</a>
+            <div class="link-container">
+              <a onclick="startQuiz(htmlQuestions)"  class=" nav-link active text-white" href="#">HTML</a>
+              <a onclick="startQuiz(cssQuestions)" class=" nav-link text-white" href="#">CSS</a>
+              <a onclick="startQuiz(jsQuestions)" class=" nav-link text-white" href="#">JS</a>
             </div>
           </div>
 
@@ -45,6 +45,7 @@
         <section style="display: flex;" id="home-screen">
           <h2>Wilkommen zum großartigen <br>
             Web Developer Quiz!</h2>
+          <h2>Such dir ein Quiz aus.</h2>
 
         </section>
 
@@ -92,7 +93,7 @@
             </div>
             <a onclick="share()" id="teilen-btn" class="link" href="#">TEILEN</a>
             <a onclick="playAgain()" id="nochmal-btn" class="link" href="#">NOCHMAL</a>
-           
+
 
           </div>
           <div class="progress">
