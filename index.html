@@ -71,11 +71,15 @@
               <div id="d" class="viereck"><b>D</b></div> <span id="answer4"></span>
             </div>
           </div>
+
           <div class="question-footer">
             <span><b id="page"></b> von <b id="pages"></b> Fragen</span>
 
             <button onclick="nextQuestion()" type="button" disabled class="btn btn-primary">Nächste Frage</button>
 
+          </div>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 10%;">0%</div>
           </div>
         </div>
         <section id="endscreen" style="display: none">
@@ -83,13 +87,19 @@
             <img class="end-img" src="src/img/Group 5.png" alt="">
             <h3><b>Quiz Komplett!</b> </h3><br>
             <div>
-              <h5 class="text-primary">Deine Punktzahl</h5> <span id="score">1</span> &nbsp;/ &nbsp;<span id="scores">7</span>
+              <h5 class="text-primary">Deine Punktzahl</h5> <span id="score">1</span> &nbsp;/ &nbsp;<span
+                id="scores">7</span>
             </div>
             <a onclick="share()" id="teilen-btn" class="link" href="#">TEILEN</a>
             <a onclick="playAgain()" id="nochmal-btn" class="link" href="#">NOCHMAL</a>
+           
 
           </div>
+          <div class="progress">
+            <div class="progress-bar" id="progress-bar" role="progressbar" style="width: 100%;">100%</div>
+          </div>
         </section>
+
       </div>
     </div>
 
@@ -99,4 +109,3 @@
 </body>
 
 </html>
-

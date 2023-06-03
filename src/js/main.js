@@ -93,7 +93,7 @@ const cssQuestions = [
         'letter': 'd'
     },
     {
-        'frage': 'Welche Einheit wird in CSS verwendet, um die Größe eines Elements relativ zur Schriftgröße zu definieren?',
+        'frage': 'Welche Einheit wird in CSS verwendet, um die Größe eines Elements relativ zur Schriftgröße des Elternelements zu definieren?',
         'antwort1': 'em',
         'antwort2': 'px',
         'antwort3': 'rem',
@@ -191,7 +191,7 @@ const jsQuestions = [
         'antwort2': 'Eine Programmiersprache',
         'antwort3': 'Ein Netzwerkprotokoll',
         'antwort4': 'Ein Datenbank System',
-        'lösung': 'answer4',
+        'lösung': 'answer1',
         'letter': 'a'
     }
 ];
@@ -248,7 +248,6 @@ function init(choosenQuiz) {
 
         showCurrentPage(choosenQuiz)
     }
-
 }
 
 // shows the number of current questions below the answers
@@ -323,7 +322,17 @@ function nextQuestion() {
     ableNextQuestion(true)
     removeColors()
     answerChecked = false
+    progressBar()
 
+}
+
+function progressBar() {
+    let progress = document.getElementsByClassName('progress-bar')
+    percent = pageCounter / WhatKindOfQuizIsRunning.length
+    percent = Math.round(percent * 100)
+
+    progress[0].innerHTML = `${percent}%`
+    progress[0].style = `width: ${percent}%`
 }
 
 // removes all colors from every answer 
@@ -363,6 +372,7 @@ function calcRightAnswers() {
 }
 // resets the app to the begining state
 function playAgain() {
+
     questionCounter = 0;
     pageCounter = 1;
     rightQuestions = 0;
@@ -374,15 +384,22 @@ function playAgain() {
     endScreen.style.display = 'none'
     homeScreen.style.display = 'flex'
     disableLinks('remove')
-
+    resetProgressBar()
 }
 
-function share(){
+// sets everything to 0 on the progressbar
+function resetProgressBar() {
+    let progress = document.getElementsByClassName('progress-bar')
+    progress[0].innerHTML = `0%`
+    progress[0].style = `width: 10%`
+}
+
+function share() {
     alert('Die teilen funktion ist derzeit inaktiv. Versuch es ein andermal nochmal')
 }
 
 
 
-console.log('läuft')
+console.log('app is working')
 
 

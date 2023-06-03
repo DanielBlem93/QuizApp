@@ -27,6 +27,10 @@ main {
     background: rgba(211, 211, 211, 0.432);
 
 }
+#quiz{
+    padding: 0;
+    justify-content: space-between;
+}
 
 #quizapp img {
     object-fit: contain;
@@ -55,6 +59,7 @@ nav {
 
 .card-title {
     margin-bottom: 50px;
+    margin-top: 50px;
 }
 
 .main-body {
@@ -65,7 +70,6 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
 }
 
 .answer {
@@ -91,7 +95,18 @@ nav {
     justify-content: space-between;
     width: 70%;
 }
-
+.progress{
+    width: 100%;
+    align-self: baseline;
+    border-radius: 0;
+}
+.progress-bar{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+#progress-bar{
+ 
+}
 /* styling in usage with JS*/
 
 #home-screen{
@@ -127,12 +142,14 @@ nav {
 
 #endscreen {
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
     text-align: center;
+    flex-direction: column;
 }
 
 #circle {
+  
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -140,6 +157,8 @@ nav {
     border-radius: 100%;
     width: 500px;
     height: 500px;
+    margin-top: auto;
+    margin-bottom: auto;
   
 }
 
