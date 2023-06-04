@@ -134,7 +134,7 @@ const jsQuestions = [
     {
         'frage': 'Was ist JavaScript?',
         'antwort1': 'Ein serverseitiges Framework',
-        'antwort2': 'Ein Datenbankmanagementsystem',
+        'antwort2': 'Ein Datenbank-managementsystem',
         'antwort3': 'Eine Programmiersprache für Webentwicklung',
         'antwort4': 'Ein Texteditor für Entwickler',
         'lösung': 'answer3',
@@ -208,6 +208,7 @@ function startQuiz(choosenQuiz) {
     showQuizScreen()
     init(choosenQuiz)
     whatKindOfQuiz(choosenQuiz);
+    mobileMode('add')
 }
 
 // siwtches from the Start screen to the quiz sequenz
@@ -328,14 +329,17 @@ function nextQuestion() {
     progressBar()
 
 }
-// handles the logic of the progressbar
-function progressBar() {
-    let progress = document.getElementsByClassName('progress-bar')
-    percent = pageCounter / WhatKindOfQuizIsRunning.length
-    percent = Math.round(percent * 100)
 
-    progress[0].innerHTML = `${percent}%`
-    progress[0].style = `width: ${percent}%`
+// shows the Endscreen of the quiz when its finished
+function showEndscreen() {
+    let quiz = document.getElementById('quiz')
+    let endscreen = document.getElementById('endscreen')
+
+    if (pageCounter > WhatKindOfQuizIsRunning.length) {
+        quiz.style.display = 'none'
+        endscreen.style.display = 'flex'
+    }
+    calcRightAnswers()
 }
 
 // removes all colors from every answer 
@@ -356,19 +360,17 @@ function removeColors() {
     }
 }
 
-// shows the Endscreen of the quiz when its finished
-function showEndscreen() {
-    let quiz = document.getElementById('quiz')
-    let endscreen = document.getElementById('endscreen')
+// handles the logic of the progressbar
+function progressBar() {
+    let progress = document.getElementsByClassName('progress-bar')
+    percent = pageCounter  / (WhatKindOfQuizIsRunning.length +1)
+    percent = Math.round(percent * 100)
 
-    if (pageCounter > WhatKindOfQuizIsRunning.length) {
-        quiz.style.display = 'none'
-        endscreen.style.display = 'flex'
-    }
-    calcRightAnswers()
+    progress[0].innerHTML = `${percent}%`
+    progress[0].style = `width: ${percent}%`
 }
 
-// shows how many right answers the play got at the end
+// shows how many right answers the player got at the end
 function calcRightAnswers() {
     let score = document.getElementById('score')
     score.innerHTML = rightQuestions
@@ -405,9 +407,18 @@ function resetActiveQuiz() {
     for (let i = 0; i < link.length; i++) {
         link[i].classList.remove('active-quiz');
     }
+    mobileMode('remove');
 }
 // its not a function
 function share() {
     alert('Die teilen funktion ist derzeit inaktiv. Versuch es ein andermal nochmal')
+}
+
+// functions on responsive mode
+
+function mobileMode(action){
+    let nav = document.getElementsByTagName('nav')
+
+    nav[0].classList[action]('mobile-mode')
 }
 console.log('app is working')

@@ -14,7 +14,7 @@
     crossorigin="anonymous"></script>
   <!-- My stylesheet -->
   <link rel="stylesheet" href="src/styles/style.css">
-  <title>Quiz App</title>
+  <title>Ein Quiz für Webentwickleranfänger</title>
 </head>
 
 <body onload="">
@@ -22,7 +22,7 @@
 
   <header class="navbar bg-body-tertiary">
     <div class="container-fluid">
-      <span class="navbar-brand mb-0 h1">QuizApp</span>
+      <span class="navbar-brand mb-0 h1">Webentwickler-Quiz für Anfänger</span>
     </div>
   </header>
 
@@ -35,7 +35,7 @@
           <img class="quiz-logo" src="src/img/logo 2.png" alt="">
           <div>
             <div class="link-container">
-              <a onclick="startQuiz(htmlQuestions)"  class=" nav-link active text-white" href="#">HTML</a>
+              <a onclick="startQuiz(htmlQuestions)" class=" nav-link active text-white" href="#">HTML</a>
               <a onclick="startQuiz(cssQuestions)" class=" nav-link text-white" href="#">CSS</a>
               <a onclick="startQuiz(jsQuestions)" class=" nav-link text-white" href="#">JS</a>
             </div>
@@ -43,7 +43,7 @@
 
         </nav>
         <section style="display: flex;" id="home-screen">
-          <h2>Wilkommen zum großartigen <br>
+          <h2>Wilkommen zu meinem
             Web Developer Quiz!</h2>
           <h2>Such dir ein Quiz aus.</h2>
 
@@ -51,25 +51,27 @@
 
         <div id="quiz" style="display: none" class="card-body  main-body flex-column ">
           <h3 id="question" class="card-title text-center"></h3>
+          <div id="answer-container">
 
-          <div onclick="checkAnswer('answer1','a')" class="card mb-2 answer answer1">
-            <div class="card-body d-flex flex-row align-items-center">
-              <div id="a" class="viereck"><b>A</b></div> <span id="answer1"></span>
+            <div onclick="checkAnswer('answer1','a')" class="card mb-2 answer answer1">
+              <div class="card-body d-flex flex-row align-items-center">
+                <div id="a" class="viereck"><b>A</b></div> <span id="answer1"></span>
+              </div>
             </div>
-          </div>
-          <div onclick="checkAnswer('answer2','b')" class="card mb-2 answer answer2">
-            <div class="card-body d-flex flex-row align-items-center ">
-              <div id="b" class="viereck"><b>B</b></div> <span id="answer2"></span>
+            <div onclick="checkAnswer('answer2','b')" class="card mb-2 answer answer2">
+              <div class="card-body d-flex flex-row align-items-center ">
+                <div id="b" class="viereck"><b>B</b></div> <span id="answer2"></span>
+              </div>
             </div>
-          </div>
-          <div onclick="checkAnswer('answer3','c')" class="card mb-2 answer answer3">
-            <div class="card-body d-flex flex-row align-items-center">
-              <div id="c" class="viereck"><b>C</b></div> <span id="answer3"></span>
+            <div onclick="checkAnswer('answer3','c')" class="card mb-2 answer answer3">
+              <div class="card-body d-flex flex-row align-items-center">
+                <div id="c" class="viereck"><b>C</b></div> <span id="answer3"></span>
+              </div>
             </div>
-          </div>
-          <div onclick="checkAnswer('answer4','d')" class="card mb-2 answer answer4">
-            <div class="card-body d-flex flex-row align-items-center">
-              <div id="d" class="viereck"><b>D</b></div> <span id="answer4"></span>
+            <div onclick="checkAnswer('answer4','d')" class="card mb-2 answer answer4">
+              <div class="card-body d-flex flex-row align-items-center">
+                <div id="d" class="viereck"><b>D</b></div> <span id="answer4"></span>
+              </div>
             </div>
           </div>
 
@@ -91,8 +93,8 @@
               <h5 class="text-primary">Deine Punktzahl</h5> <span id="score">1</span> &nbsp;/ &nbsp;<span
                 id="scores">7</span>
             </div>
-            <a onclick="share()" id="teilen-btn" class="link" href="#">TEILEN</a>
-            <a onclick="playAgain()" id="nochmal-btn" class="link" href="#">NOCHMAL</a>
+            <a onclick="share()" id="teilen-btn " class="link rspv-btn" href="#">TEILEN</a>
+            <a onclick="playAgain()" id="nochmal-btn " class="link rspv-btn" href="#">NOCHMAL</a>
 
 
           </div>
