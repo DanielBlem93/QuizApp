@@ -416,6 +416,7 @@ function share() {
 
 // functions on responsive mode
 
+// removes the nav bar
 function mobileMode(action){
     let nav = document.getElementsByTagName('nav')
 
